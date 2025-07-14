@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -124,6 +126,9 @@
         {% for item in weather_data %}
             <li>
                 <strong>{{ item.city }}</strong><br>
+                <img src="{{ item.icon_url }}" alt="{{ item.description }}" width="50">
+
+
                 Temperature: {{ item.temp }} °C<br>
                 Description: {{ item.description }}
                 <form method="POST" action="{% url 'delete_city' city_id=item.id %}" style="display:inline;">

@@ -1,10 +1,26 @@
 import requests
+import os
+from dotenv import load_dotenv
 from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from .models import City
 from .forms import CityForm
 
-API_KEY = '2a4e05c70693395329f7ef9e1239fef4'
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
+ICON_MAP = {
+    'Clear': 'sun.svg',
+    'Clouds': 'cloud.svg',
+    'Rain': 'rain.svg',
+    'Thunderstorm': 'storm.svg',
+    'Snow': 'snow.svg',
+    'Drizzle': 'drizzle.svg',
+    'Mist': 'mist.svg',
+    'Fog': 'fog.svg',
+    'Haze': 'haze.svg',
+    'Smoke': 'smoke.svg',
+}
 
 def home(request):
     form = CityForm()
@@ -19,16 +35,23 @@ def home(request):
     cities = City.objects.all()
     weather_data = []
 
+
     for city in cities:
         url = f'https://api.openweathermap.org/data/2.5/weather?q={city.name}&appid={API_KEY}&units=metric&lang=en'
         response = requests.get(url)
+
         if response.status_code == 200:
             data = response.json()
+            icon_key = data['weather'][0]['main']
+            custom_icon = ICON_MAP.get(icon_key, 'default.svg')
+
             weather = {
                 'id': city.id,
                 'city': city.name,
                 'temp': data['main']['temp'],
                 'description': data['weather'][0]['description'].capitalize(),
+                "icon_url": f"http://openweathermap.org/img/wn/{data['weather'][0]['icon']}@2x.png"
+
             }
         else:
             weather = {
