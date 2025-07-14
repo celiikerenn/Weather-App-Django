@@ -7,6 +7,12 @@ A simple weather app built with Django where users can:
 - Toggle between light and dark themes 🌗
 - Delete individual cities or all at once 🗑️
 - Securely store your API key using `.env` 🔐
+- Display weather icons next to each city (e.g., sunny, cloudy, rainy) 🖼️
+---
+
+## 🖼️ Weather Icons Feature
+
+Each city now displays a relevant weather icon (fetched from OpenWeatherMap or mapped locally), enhancing the UI.
 
 ---
 
@@ -28,6 +34,20 @@ A simple weather app built with Django where users can:
 - HTML + CSS (vanilla)
 - OpenWeatherMap API
 - [python-dotenv](https://pypi.org/project/python-dotenv/)
+
+---
+
+📁 Folder Structure (relevant parts)
+
+weather_app/
+├── static/
+│   └── icons/          # Weather icons stored here (optional)
+├── templates/
+│   └── weather/
+│       └── home.html
+├── .env
+├── requirements.txt
+├── manage.py
 
 ---
 
