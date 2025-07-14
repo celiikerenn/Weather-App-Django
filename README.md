@@ -55,7 +55,13 @@ pip install -r requirements.txt
 API_KEY=your_openweathermap_api_key_here
 ```
 
-### 5. Run the app
+### 5.Run database migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 6. Run the app
 ```bash
 python manage.py runserver
 ```
