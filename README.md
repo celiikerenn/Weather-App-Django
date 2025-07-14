@@ -38,17 +38,17 @@ Each city now displays a relevant weather icon (fetched from OpenWeatherMap or m
 ---
 
 📁 Folder Structure (relevant parts)
-
+```bash
 weather_app/
 ├── static/
-│   └── icons/          # Weather icons stored here (optional)
+│   └── icons/                  # Weather icons stored here (optional)
 ├── templates/
 │   └── weather/
 │       └── home.html
 ├── .env
 ├── requirements.txt
-├── manage.py
-
+└── manage.py
+```
 ---
 
 ## 🛠️ Setup Instructions
