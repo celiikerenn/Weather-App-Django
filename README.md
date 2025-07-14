@@ -61,4 +61,6 @@ python manage.py runserver
 ```
 
 ### Then go to:
+```bash
 http://127.0.0.1:8000
+```
