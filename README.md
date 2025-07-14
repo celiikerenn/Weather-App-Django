@@ -34,21 +34,31 @@ A simple weather app built with Django where users can:
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/celiikerenn/Weather-App-Django.git
 cd Weather-App-Django
+```
 
 ### 2. Create a virtual environment and activate it
+```bash
 python -m venv .venv
 .venv\Scripts\activate  # Windows
+```
 
 ### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Create a .env file and add your API key
+```bash
 API_KEY=your_openweathermap_api_key_here
+```
 
 ### 5. Run the app
+```bash
 python manage.py runserver
+```
 
 ### Then go to:
 http://127.0.0.1:8000
